@@ -14,11 +14,11 @@
 第一步：height[0]=2，pre置为0，检查栈顶，栈s为空，直接将2压入s栈，0压入id栈；</br>
 第二步：height[1]=1，pre置为0，检查栈顶，s.top()=2>1，直接将1压入s栈，1压入id栈；</br>
 第三步：height[2]=0，pre置为0，检查栈顶，s.top()=1>0，直接将0压入s栈，2压入id栈；</br>
-第四步：height[3]=4，pre置为0，检查栈顶，s.top()=0<4，ans增加(i-id.top()-1)\*(s.top()-pre)=0，pre=s.top()=0，弹出s和id栈的栈顶，继续；</br>
-检查栈顶，s.top()=1<4，ans增加(i-id.top()-1)\*(s.top()-pre)=1，pre=s.top()=1，弹出s和id栈的栈顶，继续；</br>
-检查栈顶，s.top()=2<4，ans增加(i-id.top()-1)\*(s.top()-pre)=2，pre=s.top()=2，弹出s和id栈的栈顶，继续；</br>
+第四步：height[3]=4，pre置为0，检查栈顶，s.top()=0<4，ans增加(i-id.top()-1)*(s.top()-pre)=0，pre=s.top()=0，弹出s和id栈的栈顶，继续；</br>
+检查栈顶，s.top()=1<4，ans增加(i-id.top()-1)*(s.top()-pre)=1，pre=s.top()=1，弹出s和id栈的栈顶，继续；</br>
+检查栈顶，s.top()=2<4，ans增加(i-id.top()-1)*(s.top()-pre)=2，pre=s.top()=2，弹出s和id栈的栈顶，继续；</br>
 检查栈顶，栈s为空，直接将4压入s栈，3压入id栈；</br>
 第五步：height[4]=2，pre置为0，检查栈顶，s.top()=4>2，直接将2压入s栈，4压入id栈；</br>
-第六步：height[5]=3，pre置为0，检查栈顶，s.top()=2<3，ans增加(i-id.top()-1)\*(s.top()-pre)=0，pre=s.top()=0，弹出s和id栈的栈顶，继续；</br>
-检查栈顶，s.top()=4<3，跳出，ans增加(i-id.top()-1)\*(s.top()-pre)=1，pre=s.top()=2，将3压入s栈，5压入id栈。</br>
+第六步：height[5]=3，pre置为0，检查栈顶，s.top()=2<3，ans增加(i-id.top()-1)*(s.top()-pre)=0，pre=s.top()=0，弹出s和id栈的栈顶，继续；</br>
+检查栈顶，s.top()=4<3，跳出，ans增加(i-id.top()-1)*(s.top()-pre)=1，pre=s.top()=2，将3压入s栈，5压入id栈。</br>
 最终ans为4。
