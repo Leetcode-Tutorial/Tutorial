@@ -10,9 +10,14 @@
 为解决上述问题，我们设计如下图所示的数据结构。  
 
 ![Markdown](http://p1.bqimg.com/1949/b854c3c2fd4f6e4f.png)  
-将所有的值映射到一个`vector`的连续空间之中。  
-在`unordered_map`中，以元素的值作为键值，内部存储的是每个元素其映射到`vector`中单元的下标即`index`。  
-而`vector`内不仅需要存储元素的值，还有其在`unordered_map`中对应的单元位置。  
-当一个新的值被插入到集合中，仅需在对应的`unordered_map`与`vector`的尾端新申请一个单元建立相应的连接关系。  
-至于移除操作，将会导致Vector中一个单元的空缺，为了维护存储单元 **连续** 以便随机输出，做法为将Vector尾部的单元移至被删除的单元，后将Vector尾部单元删除。为了操作方便，从unordered_map中删除的`index`为最尾端的。
-随机输出时，则产生范围为`0~vector.size()`的随机数，再输出对应vector单元中的数字即可。
+>将所有的值映射到一个`vector`的连续空间之中。  
+>在`unordered_map`中，以元素的值作为键值，内部存储的是每个元素其映射到`vector`中单元的下标即`index`。  
+>而`vector`内不仅需要存储元素的值，还有其在`unordered_map`中对应的单元位置。   
+
+以上图为例，已经在`unordered_map`中存储了四个值为1的元素，以及两个值为2的元素。在`unordered_map`内的建立的容器中，记录着其在外部Vector中的下标，即值为1的元素分别存在Vector的0、2、3、5元素中，这种连接关系以单向箭头表示出。而Vector内存储的是`<value, index>`的`pair`，不仅记录下实际的值，并且可根据`<value, index>`找到确定的在`unordered_map`中存储的位置。如vector 的0号单元为<1,0>，对应的便是  `unordered_map`内键值为1的容器的第0号单元
+### 插入  
+当一个新的值被插入到集合中，仅需在对应的`unordered_map`与`vector`的尾端新申请一个单元建立相应的连接关系。
+### 移除  
+为了操作方便，从unordered_map中删除对应元素的容器中最尾端的,根据存储的index找到其在Vector中存储的对应单元，将其一并删除。由于这么将会导致Vector中一个单元的空缺，为了维护存储单元 **连续** 以便随机输出，做法为将Vector尾部的单元移至被删除的单元，后将Vector尾部单元删除，同时更新对应的`unordered_map`单元内的`index`。
+###随机输出
+产生范围为`0~vector.size()`的随机数，再输出对应vector单元中的数字即可。
