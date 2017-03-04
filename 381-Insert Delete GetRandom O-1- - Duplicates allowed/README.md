@@ -14,7 +14,7 @@
 >在`unordered_map`中，以元素的值作为键值，内部存储的是每个元素其映射到`vector`中单元的下标即`index`。  
 >而`vector`内不仅需要存储元素的值，还有其在`unordered_map`中对应的单元位置。   
 
-以上图为例，已经在`unordered_map`中存储了四个值为1的元素，以及两个值为2的元素。在`unordered_map`内的建立的容器中，记录着其在外部Vector中的下标，即值为1的元素分别存在Vector的0、2、3、5元素中，这种连接关系以单向箭头表示出。而Vector内存储的是`<value, index>`的`pair`，不仅记录下实际的值，并且可根据`<value, index>`找到确定的在`unordered_map`中存储的位置。如vector 的0号单元为<1,0>，对应的便是  `unordered_map`内键值为1的容器的第0号单元
+以上图为例，已经在`unordered_map`中存储了四个值为1的元素，以及两个值为3的元素。在`unordered_map`内的建立的容器中，记录着其在外部Vector中的下标，即值为1的元素分别存在Vector的0、2、3、5元素中，这种连接关系以单向箭头表示出。而Vector内存储的是`<value, index>`的`pair`，不仅记录下实际的值，并且可根据`<value, index>`找到确定的在`unordered_map`中存储的位置。如vector 的0号单元为<1,0>，对应的便是  `unordered_map`内键值为1的容器的第0号单元
 ### 插入  
 当一个新的值被插入到集合中，仅需在对应的`unordered_map`与`vector`的尾端新申请一个单元建立相应的连接关系。
 ### 移除  
