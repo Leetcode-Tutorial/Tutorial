@@ -10,7 +10,7 @@ public:
     }
     int reversePairs(vector<int>& nums) {
         int ans = 0;
-        //异号, nums[j] < 0
+        //different sign, nums[j] < 0
         for(int i = 0, temp = 0; i < nums.size(); i++){
             if(nums[i] < 0) ans += temp;
             else temp++;
@@ -20,7 +20,7 @@ public:
             if(nums[i] == 0) ans += temp;
             if(nums[i] > 0) temp++;
         }
-        //同正
+        //both > 0
         vector<int> c = vector<int>(nums.size()+1, 0);
         vector<pair<int, int>> ret;
         for(int i = 0; i < nums.size(); i++)
@@ -31,7 +31,7 @@ public:
             while(j >= 0&&ret[j].first > 2LL*x) add(ret[j].second, c), j--;
             ans += sum(pos-1, c);
         }
-        //同负
+        //both < 0
         ret.clear();
         c = vector<int>(nums.size()+1, 0);
         for(int i = 0; i < nums.size(); i++)
