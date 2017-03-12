@@ -14,7 +14,7 @@ public:
             for (int j = 0; j <= len; j++) dp[j] = false;
             dp[0] = true;
             for (int j = 0; j < len; j++) {
-                for (int k = 0; k < len; k++) {
+                for (int k = 0; k < j + 1; k++) {
                     if (dp[k] && st.count(words[i].substr(k, j + 1 - k)) > 0) {
                         dp[j + 1] = true; 
                         break;
@@ -27,3 +27,4 @@ public:
         return ans;
     }
 };
+
