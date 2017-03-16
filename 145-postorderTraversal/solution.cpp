@@ -9,16 +9,31 @@
  */
 class Solution {
 public:
-    vector <int> answer;
-    void dfs (TreeNode *root) {
-        if (root == NULL) return ;
-        if (root->left != NULL) dfs (root->left);
-        if (root->right != NULL) dfs (root->right);
-        answer.push_back (root->val);
-    }
+    struct node {
+        TreeNode *a;
+        int b;
+    };
     vector<int> postorderTraversal(TreeNode* root) {
-        answer.clear ();
-        dfs (root);
-        return answer;
+        vector <int> ans; stack <node> s;
+        ans.clear ();
+        
+        s.push ((node) {root, 1});
+        while (!s.empty ()) {
+            node u = s.top (); s.pop ();
+            if (u.a == NULL) break;
+            if (u.b == 2) {
+                ans.push_back (u.a->val);
+            }
+            else {
+                s.push ((node) {u.a, u.b+1});
+                if (u.a->right != NULL) {
+                    s.push ((node) {u.a->right, 1});
+                }
+                if (u.a->left != NULL) {
+                    s.push ((node) {u.a->left, 1});
+                }
+            }
+        }
+        return ans;
     }
 };
