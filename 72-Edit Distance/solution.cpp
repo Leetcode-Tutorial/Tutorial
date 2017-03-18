@@ -1,10 +1,3 @@
-int min(int a,int b,int c)//求三个数最小值
-{
-    int res=a;
-    if(b<res)res=b;
-    if(c<res)res=c;
-    return res;
-}
 int minDistance(string word1, string word2)
 {
     int len1=word1.size(),len2=word2.size();
@@ -22,8 +15,8 @@ int minDistance(string word1, string word2)
     {
         for(int j=1;j<=len2;j++)
         {
-            if(word1[i-1]==word2[j-1])dp[i][j]=min(dp[i-1][j]+1,dp[i][j-1]+1,dp[i-1][j-1]);//两个字符想等
-            else dp[i][j]=min(dp[i-1][j]+1,dp[i][j-1]+1,dp[i-1][j-1]+1);//两个字符不相等
+            if(word1[i-1]==word2[j-1])dp[i][j]=min(dp[i-1][j]+1,dp[i][j-1]+1,dp[i-1][j-1]);//两个字符相等
+            else dp[i][j]=min(dp[i-1][j]+1,min(dp[i][j-1]+1,dp[i-1][j-1]+1));//两个字符不相等
         }
     }
     return dp[len1][len2];
