@@ -4,10 +4,7 @@ public:
         vector<vector<int>> V;
         map<int, int> M;
         for(auto i:nums)//初始化，记录每个整数i出现在nums集合内的次数
-        {
-            if(!M[i]) M[i]=1;
-            else M[i] = M[i]+1;
-        }
+            M[i] = M[i]+1;
 
         for(auto i=M.begin(); i!=M.end() ;i++)
         {
