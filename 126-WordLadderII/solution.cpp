@@ -38,7 +38,7 @@ public:
             for(int i=0;i<g[u].size();i++)
             {
                 int v=g[u][i];
-                if(dis[v]>dis[u]+1)
+                if(dis[v]>dis[u]+1) //路径松弛条件，同时也避免了无限宽搜。
                 {
                     dis[v]=dis[u]+1;
                     que.push(v);
@@ -82,3 +82,4 @@ public:
         return tot==1;
     }
 };
+
