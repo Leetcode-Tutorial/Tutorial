@@ -3,6 +3,7 @@ public:
     bool canFinish(int numCourses, vector<pair<int, int>>& prerequisites) {
         vector<int> DU(numCourses,0);//存储每个节点的入度
         vector<bool> used(numCourses,false);//表示每个节点是否已在该图中被删除
+        vector<int> Q;//入度为0的待处理节点加入队列之中
         vector<vector<int>> Link(numCourses,vector<int>());
         for(auto x:prerequisites)
         {
@@ -10,18 +11,18 @@ public:
             Link[x.second].push_back(x.first);
         }
         int cnt(0);
-        while(1)
+        for(int i=0; i<numCourses; i++)
+            if(!DU[i]) Q.push_back(i);//将入度为0的点压入容器中
+        while(!Q.empty())
         {
-            bool st = false;//记录当前是否能找到一个入度为0的点
-            for(int i=0;i<numCourses;i++)
-                if(DU[i]==0&&!used[i])//拓展节点
-                {
-                    st = true;
-                    cnt++;
-                    used[i] = true;
-                    for(auto x:Link[i]) DU[x]--;
-                }
-            if(!st) break;//无法找到则跳出循环
+            cnt++;
+            int x = Q.back();
+            Q.pop_back();
+            for(auto i:Link[x])//将结点x所有连接到的点的入度减1
+            {
+                DU[i]--;
+                if(!DU[i]) Q.push_back(i);
+            }
         }
         return cnt==numCourses;//判断整张图中是否所有节点都已被删除
     }
