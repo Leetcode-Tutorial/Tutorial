@@ -1,17 +1,13 @@
 class Solution {
 public:
-    int searchInsert(vector<int>& nums, int target) {
-        int r = nums.size()-1;
-        int l = 0;
-        while (l <= r) {
-            int mid = l + (r - l) / 2;
-            if (nums[mid] < target)
-                l = mid + 1;
-            else if (nums[mid] > target)
-                r = mid - 1;
-            else
-                return mid;
+    int maxSubArray(vector<int>& nums) {
+        if(nums.size() == 1) return nums[0];
+        int sum = 0, ans = nums[0], minsum = 0;
+        for(int i = 0; i < nums.size(); i++){
+            sum += nums[i];
+            ans = max(ans, sum-minsum);
+            minsum = min(minsum, sum);
         }
-        return l;
+        return ans;
     }
 };
