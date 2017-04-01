@@ -1,6 +1,9 @@
 ## 题目分析：
 
-设计一个`Least Recently Used (LRU) cache`(最近最少使用缓存)的数据结构, 支持1.`new LRUCache(capacity)`, 初始化内存大小; 2.`get(key)`, 访问关键字为`key`的`value`值; 3.`put(key, value)`, 设置关键字为`key`的`value`值 
+设计一个`Least Recently Used (LRU) cache`(最近最少使用缓存)的数据结构, 支持
+1.`new LRUCache(capacity)`, 初始化内存大小; 
+2.`get(key)`, 访问关键字为`key`的`value`值; 
+3.`put(key, value)`, 设置关键字为`key`的`value`值 
 
 ### 解题思路（1）
 维护一个以访问时间为键值, 大小为`capacity`的平衡树。那么每次替换的时候，将键值最小的替换出去即可。单次操作时间复杂度为`O(log(capacity))`.
