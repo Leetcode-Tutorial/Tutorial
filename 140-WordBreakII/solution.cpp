@@ -19,7 +19,7 @@ public:
     }
     void dfs(string str,vector<vector<int>> &dp, string ori,vector<string> &ans,int idx)
     {
-        if(left==0)
+        if(idx==0)
         {
             ans.push_back(str);
             return;
