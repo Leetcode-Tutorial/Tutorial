@@ -4,7 +4,7 @@ public:
         Height.assign(n,0);
         fa.assign(n,-1);
         Max_son.assign(n, make_pair(0,0));//记录一个树结点向下的最长链
-        Sec_son.assign(n, make_pair(0,0));//记录一个树结点向下的ci长链
+        Sec_son.assign(n, make_pair(0,0));//记录一个树结点向下的次长链
         Link.assign(n,vector<int>(0,0));
         for(auto i:edges)//根据每点建立连接
         {
