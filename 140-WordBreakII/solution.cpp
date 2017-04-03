@@ -14,8 +14,10 @@ public:
         for(int i=1;i<=n;i++)
             for(int j=1;j<=i;j++)
                 if(dp[j-1].size()&&word.count(s.substr(j,i-j+1)))
-                    dp[i].push_back(j);
+                    dp[i].push_back(j),printf("%d %d\n",i,j);
         vector<string> ans;
+        dfs(string(),dp,s,ans,n);
+        return ans;
     }
     void dfs(string str,vector<vector<int>> &dp, string ori,vector<string> &ans,int idx)
     {
