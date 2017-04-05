@@ -13,7 +13,7 @@ public:
                 int x = ans[i] | (1<<T);//产生新的数字
                 ans.push_back(x);
             }
-                down = ans.size();重新确定当前的下界
+                down = ans.size();//重新确定当前的下界
         }
         return ans;
     }
