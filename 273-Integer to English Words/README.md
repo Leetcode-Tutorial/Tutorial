@@ -9,5 +9,5 @@
 处理最高级，数字为0，跳过；</br>
 处理第二级，数字为1，级内百位为0，跳过；十位为0，跳过；个位为1，答案添加”One”；最后再添加” Million”；</br>
 处理第三级，数字为234，由于先前已经有非0数，因此添加空格，级内百位为2，答案添加”Two Hundred”；十位为3，由于先前已经有非0数，因此添加空格，再添加”Thirty”；个位为4，由于先前已经有非0数，因此添加空格，再添加”Four”；最后再添加” Thousand”；</br>
-处理第四级，数字为567，由于先前已经有非0数，因此添加空格，级内百位为5，答案添加”Five Hundred”；十位为6，由于先前已经有非0数，因此添加空格，再添加”Sixty”；个位为7，由于先前已经有非0数，因此添加空格，再添加”Seven”；最后再添加” Thousand”；</br>
-最终结果为”One Million Two Hundred Thirty Four Thousand Five Hundred Sixty Sseven”。
+处理第四级，数字为567，由于先前已经有非0数，因此添加空格，级内百位为5，答案添加”Five Hundred”；十位为6，由于先前已经有非0数，因此添加空格，再添加”Sixty”；个位为7，由于先前已经有非0数，因此添加空格，再添加”Seven”；</br>
+最终结果为”One Million Two Hundred Thirty Four Thousand Five Hundred Sixty Seven”。
