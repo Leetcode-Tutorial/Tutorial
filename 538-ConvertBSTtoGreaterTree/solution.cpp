@@ -14,7 +14,7 @@ public:
         if(root){
             convertBST(root->right);
             root->val += sum;
-			sum = root->val;
+            sum = root->val;
             convertBST(root->left);
         }
         return root;
